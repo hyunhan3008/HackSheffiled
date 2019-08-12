@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <link href="../css/styles.css" rel="stylesheet">
+</head>
+    
+    
+    
+<body style="background-image:url('<%= @imageUrl %>');background-repeat: no-repeat; background-size: cover; background-color: rgba(255, 255, 255, 0.7);" >
+    
+    <h1 class="text"> Conclude The Mood </h1>
+    <div align="center">
+        <p style="color:black;">Type in absolutely anywhere in the world and we will analyze its tweets to tell you how it is feeling in real time!</p>
+    </div>
+<form role="form" method="post" action="/submit">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+            <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Search for somewhere" name="description" id="description" value="<%=h @description %>" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="form">
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+	</div>
+    </form>
+    
+    <% if @iserror %>
+     <div align="center">
+          <p style="color:red">Please enter a valid Location</p>
+    </div>
+    <% end %>
+    <div align="center">
+    <% if !@iserror %>
+     
+        <% if (@number == 1) %>
+             <!--<p style="color:black">We've just analysed the 200 most recent tweets in that area!</p><p style="color:black"> On average people feel:</p> -->
+            <h2 class="text">Happy</h2>
+            <img src="../images/happy_octo_crop.png" alt="Mountain View"  height="380" width="340" >
+        <% end %>
+    
+        <% if (@number == 2) %>
+             <!--<p style="color:black">We've just analysed the 200 most recent tweets in that area!</p><p style="color:black"> On average people feel:</p> -->
+             <h2 class="text">Neutral</h2>
+            <img src="../images/neut_oct.png" alt="Mountain View"  height="380" width="340">
+        <% end %>
+    
+        <% if (@number == 3) %>
+              <!--<p style="color:black">We've just analysed the 200 most recent tweets in that area!</p><p style="color:black"> On average people feel:</p> -->
+            <h2 class="text">Sad</h2>
+            <img src="../images/sad_octo2.png" alt="Mountain View"  height="380" width="340">
+        <% end %>
+    
+        <% if (@number == 4) %>
+              <p style="color:black">We've just analysed the 200 most recent tweets in that area!</p><p style="color:black"> On average people feel:</p>
+            <h2 style="color:black;">Angry</h2>
+
+            <img src="../images/anrgy_octo_crop.png" alt="Mountain View"  height="380" width="340">
+
+        <% end %>    
+        
+    <% end %>
+                                                                                                   
+    </div>
+                                                                                                   
+</body>
+</html>

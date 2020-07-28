@@ -20,5 +20,5 @@ gem 'googlecharts'
 gem 'gchart'
 gem 'unicode-emoji'
 gem 'http', '~> 2.2', '>= 2.2.1'
-gem 'json', '~> 1.8', '>= 1.8.3'
+gem 'json', '~> 2.3'
 
